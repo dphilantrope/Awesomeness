@@ -114,9 +114,9 @@ function randomColor(){
 	//pick a red from 0-255
 	var r=Math.ceil(Math.random()*255),
 	//pick a green from 0-255
-	g=Math.floor(Math.random()*255),
+	g=Math.ceil(Math.random()*255),
 	//pick a blue from 0-255
-	b=Math.floor(Math.random()*255);
+	b=Math.ceil(Math.random()*255);
 	return "rgb("+r+", "+g+", "+b+")";
 }
 

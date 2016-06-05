@@ -1,0 +1,64 @@
+<!Doctype html>
+<html>
+
+<head>
+	<title>Paper.js Exercise</title>
+
+	<style type="text/css">
+		body{
+			height: 100%;
+			margin: 0;
+		}
+		canvas{
+			width: 100%;
+			height: 100%;
+			background: black;
+		}
+	</style>
+
+	<script>
+		function randomColor(){
+			var r=Math.ceil(Math.random()*255),
+			g=Math.ceil(Math.random()*255),
+			b=Math.ceil(Math.random()*255);
+			return "rgb("+r+", "+g+", "+b+")";
+		}
+	</script>
+
+	<script src="../assets/js/lib/paper-full.min.js"></script>
+	<script type="text/paperscript" canvas="Canvas1">
+		genCanvas1();
+
+		function genTriangle(xPlot, yPlot){
+			return new Path.RegularPolygon({
+				center: [xPlot, yPlot],
+				sides: 3,
+				radius: 30,
+				fillColor: randomColor()
+			});
+		}
+
+		function genCanvas1(){
+			var xPlot, yPlot;
+			for(var y=0; y<4; ++y){
+				for(var x=0; x<9; ++x){
+					genTriangle(x*150+50, y*165+85).rotate(90);
+
+					genTriangle(x*150+75, y*165+60).rotate(180);
+
+					genTriangle(x*150+100, y*165+85).rotate(270);
+
+					genTriangle(x*150+75, y*165+110);
+				}
+			}
+		}
+		
+	</script>
+</head>
+
+<body>
+	<canvas id="Canvas1" resize></canvas>
+	
+</body>
+
+</html>
